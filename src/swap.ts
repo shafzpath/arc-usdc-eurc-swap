@@ -23,7 +23,7 @@ const adapter = createViemAdapterFromPrivateKey({
 
 // 1. Estimate first — never fly blind on real funds
 const estimate = await kit.estimateSwap({
-  from:      { adapter, chain: "Arc_Testnet" },
+  from:      { adapter, chain: "Arc" },
   tokenIn:   "USDC",
   tokenOut:  "EURC",
   amountIn,
@@ -38,13 +38,13 @@ console.log(
   "By proceeding you accept the aggregator's terms of service."
 );
 console.log(
-  "\n⚠  This is Arc Testnet. No real funds will move. Proceeding in 5 s…"
+  "\n⚠  This is Arc Mainnet. Real USDC will move. Proceeding in 5 s…"
 );
 await new Promise((r) => setTimeout(r, 5_000));
 
 // 2. Execute — recipient gets EURC at the address you specified
 const result = await kit.swap({
-  from:      { adapter, chain: "Arc_Testnet" },
+  from:      { adapter, chain: "Arc" },
   tokenIn:   "USDC",
   tokenOut:  "EURC",
   amountIn,
@@ -61,6 +61,6 @@ console.log("Tx hash:     ", result.txHash);
 console.log(
   "Explorer:    ",
   result.explorerUrl ??
-    `https://explorer.testnet.arc.io/tx/${result.txHash}`
+    `https://explorer.arc.io/tx/${result.txHash}`
 );
 console.log("\nFull result:\n", inspect(result, false, null, true));
