@@ -1,0 +1,20 @@
+{
+  "name": "arc-usdc-eurc-swap",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "@circle-fin/adapter-viem-v2": "^1.19.0",
+    "@circle-fin/app-kit": "^1.16.0",
+    "viem": "^2.57.4"
+  }
+}
